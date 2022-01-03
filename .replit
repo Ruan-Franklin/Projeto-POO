@@ -1,2 +1,2 @@
 language = "bash"
-run ="mcs -out:main.exe 'teste/helloworld.cs'; mono main.exe"
+run ="mcs -out:main.exe 'classes_do_modelo/modelo.cs'; mono main.exe"
