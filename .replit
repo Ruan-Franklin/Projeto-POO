@@ -1,2 +1,2 @@
-language = "bash"
-run ="mcs -out:main.exe 'classes_do_modelo/modelo.cs'; mono main.exe"
+language = "csharp"
+run = "mcs -out:main.exe 'Cap_1_Ada_Byron/menu.cs' 'Cap_1_Ada_Byron/categoria.cs' 'Cap_1_Ada_Byron/produto.cs'  'Cap_1_Ada_Byron/ncategoria.cs' ; mono main.exe"
