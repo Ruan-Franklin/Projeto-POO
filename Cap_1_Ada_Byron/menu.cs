@@ -28,7 +28,7 @@ class MainClass {
      Console.WriteLine();
      return opção;                                                        }
    public static void PagCliente() {
-     Console.WriteLine("----- Listagem de produtos -----");
+     Console.WriteLine("----- Categorias de jogos disponíveis -----");
      Categoria[] ct = ncategoria.Listar();
      if(ct.Length==0){
        Console.WriteLine("Não há nenhuma categoria cadastrada");
@@ -43,7 +43,7 @@ class MainClass {
      Console.WriteLine("----- Inserção de produtos -----");
      Console.Write("Informe um código para a categoria: ");
     int id = int.Parse(Console.ReadLine());
-    Console.Write("Informe uma descrição: ");
+    Console.Write("Informe o nome da categoria: ");
     string descrição = Console.ReadLine();
     Categoria c = new Categoria(id, descrição);
     ncategoria.Inserir(c);
