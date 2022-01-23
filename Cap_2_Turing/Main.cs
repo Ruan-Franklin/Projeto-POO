@@ -49,14 +49,14 @@ class MainClass {
          try{
            seleção=Usuario();
            switch(seleção) {
-             case 1 : ProdutoListar(); break;
-             case 2 : ProdutoInserir(); break;
+             case 5 : ProdutoListar(); break;
+             case 6 : ProdutoInserir(); break;
      }
      }
          catch (Exception erro) {
            Console.WriteLine(erro.Message);
            seleção=100; }
-     }   while(seleção!=0);
+     }   while(seleção!=8);
        Console.WriteLine ("Acesso finalizado, obrigado!....."); }
        
  
@@ -87,7 +87,7 @@ class MainClass {
     int id = int.Parse(Console.ReadLine());
     Console.Write("Informe uma descrição sobre o produto: ");
     string descrição = Console.ReadLine();
-    Console.Write("Informe o estoque do produto");
+    Console.Write("Informe o estoque do produto: ");
     int quantidade= int.Parse(Console.ReadLine());
     Console.Write("Informe o preço do produto em R$ ");
     double preço= int.Parse(Console.ReadLine());
@@ -104,16 +104,17 @@ class MainClass {
     public static int Usuario() {
      Console.WriteLine();
      Console.WriteLine("----------------------------------");
-     Console.WriteLine("Digite uma das opções abaixo para realizar uma ação.");
+     Console.WriteLine("Digite o id da categoria que você deseja acessar.");
 
-     Console.WriteLine("1 - Adicionar item ao carrinho");
-     Console.WriteLine("2 - Avaliar o produto");
-     Console.WriteLine("0 - Encerrar o acesso");
+     Console.WriteLine("5 - Adicionar item ao carrinho");
+     Console.WriteLine("6 - Avaliar o produto");
+     Console.WriteLine("8 - Encerrar o acesso");
      Console.Write("Informe uma opção: ");
      int escolha = int.Parse(Console.ReadLine());
      Console.WriteLine();
      return escolha;
   }
+  
    }
 
 

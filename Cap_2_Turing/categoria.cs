@@ -34,6 +34,6 @@ class Categoria {
     np++;
   }
   public override string ToString() {
-    return id + " - " + descrição + " - Nº produtos: " + np;
+    return id + " - " + descrição + "  " ;
   }
 }
