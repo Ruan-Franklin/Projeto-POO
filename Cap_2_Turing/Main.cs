@@ -49,7 +49,7 @@ class MainClass {
            Console.WriteLine(erro.Message);
            seleção=100; }
      }   while(seleção!=8);
-       Console.WriteLine ("Acesso finalizado, obrigado!....."); }
+       Console.WriteLine ("Você voltou para o menu principal!....."); }
        
  
    public static void PagVendedor() {
@@ -69,7 +69,7 @@ class MainClass {
            Console.WriteLine(erro.Message);
            decisão=100; }
      }   while(decisão!=9);
-       Console.WriteLine ("Acesso finalizado, obrigado!....."); }
+       Console.WriteLine ("Você voltou para o MENU PRINCIPAL! ..."); }
   public static void ProdutoListar() {
      Console.WriteLine("----- Lista de jogos disponíveis -----");
      Produto[] pt = nproduto.Listar();
@@ -86,7 +86,7 @@ class MainClass {
      Console.WriteLine("----- Inserção de produtos -----");
      Console.Write("Informe um código para o produto: ");
     int id = int.Parse(Console.ReadLine());
-    Console.Write("Informe uma descrição sobre o produto: ");
+    Console.Write("Informe o nome do jogo: ");
     string descrição = Console.ReadLine();
     Console.Write("Informe o estoque do produto: ");
     int quantidade= int.Parse(Console.ReadLine());
@@ -108,7 +108,7 @@ class MainClass {
 
      Console.WriteLine("5 - Ver categorias de produtos disponíveis.");
      Console.WriteLine("6 - Ver produtos disponíveis");
-     Console.WriteLine("8 - Encerrar o acesso");
+     Console.WriteLine("8 - Voltar para o menu principal");
      Console.Write("Informe uma opção: ");
      int escolha = int.Parse(Console.ReadLine());
      Console.WriteLine();
@@ -130,7 +130,7 @@ class MainClass {
     Console.WriteLine("----- Inserção de Categorias -----");
     Console.Write("Informe um código para a categoria: ");
     int id = int.Parse(Console.ReadLine());
-    Console.Write("Informe uma descrição: ");
+    Console.Write("Informe o nome da categoria: ");
     string descricao = Console.ReadLine();
     // Instanciar a classe de Categoria
     Categoria c = new Categoria(id, descricao);
@@ -145,7 +145,7 @@ public static int Negociador() {
 
      Console.WriteLine("3- Inserir categoria de produtos.");
      Console.WriteLine("4- Inserir produto");
-     Console.WriteLine("9 - Encerrar o acesso");
+     Console.WriteLine("9 - Voltar para  o menu principal");
      Console.Write("Informe uma opção: ");
      int preferência = int.Parse(Console.ReadLine());
      Console.WriteLine();
