@@ -188,7 +188,7 @@ public static void ProdutoAtualizar() {
     ProdutoListar();
     Console.Write("Informe o código do produto a ser atualizado: ");
     int id = int.Parse(Console.ReadLine());
-    Console.Write("Informe uma descrição: ");
+    Console.Write("Informe um novo nome para o produto: ");
     string descrição = Console.ReadLine();
     Console.Write("Informe o estoque do produto: ");
     int quantidade = int.Parse(Console.ReadLine());

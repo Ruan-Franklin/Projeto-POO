@@ -36,4 +36,18 @@ class Categoria {
   public override string ToString() {
     return id + " - " + descrição + "  " ;
   }
+   private int ProdutoIndice(Produto p) {
+    // Recupera o índice de um produto no vetor
+    for (int i = 0; i < np; i++)
+      if (produtos[i] == p) return i;
+    return -1;  
+  }
+  public void ProdutoExcluir(Produto p) {
+    // Exclui um produto da categoria
+    int n = ProdutoIndice(p);
+    if (n == -1) return;
+    for (int i = n; i < np - 1; i++)
+      produtos[i] = produtos[i + 1];
+    np--;  
+  }
 }
