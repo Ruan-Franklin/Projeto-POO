@@ -184,8 +184,37 @@ public static int Negociador() {
      return preferência;
 }
 public static void ProdutoAtualizar() {
+  Console.WriteLine("----- Atualização de Produtos -----");
+    ProdutoListar();
+    Console.Write("Informe o código do produto a ser atualizado: ");
+    int id = int.Parse(Console.ReadLine());
+    Console.Write("Informe uma descrição: ");
+    string descrição = Console.ReadLine();
+    Console.Write("Informe o estoque do produto: ");
+    int quantidade = int.Parse(Console.ReadLine());
+    Console.Write("Informe o preço do produto: ");
+    double preço = double.Parse(Console.ReadLine());
+    CategoriaListar();
+    Console.Write("Informe o código da categoria do produto: ");
+    int idcategoria = int.Parse(Console.ReadLine());
+    // Seleciona a categoria a partir do id
+    Categoria c = ncategoria.Listar(idcategoria);    
+    // Instancia a classe de Produto
+    Produto p = new Produto(id, descrição, quantidade, preço, c);
+    // Atualiza o produto
+    nproduto.Atualizar(p);
   }
   public static void ProdutoExcluir() {
+    Console.WriteLine("----- Exclusão de Produtos -----");
+    ProdutoListar();
+    Console.Write("Informe o código do produto a ser excluído: ");
+    int id = int.Parse(Console.ReadLine());
+    // Procura o produto com esse id
+    Produto p = nproduto.Listar(id);
+    // Exclui o produto
+    nproduto.Excluir(p);
   }
 }
+
+
                   
