@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 class MainClass {
    private static NCategoria ncategoria = new NCategoria();
    private static NProduto nproduto = new NProduto();
