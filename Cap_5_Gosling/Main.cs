@@ -5,9 +5,12 @@ using System.Threading;
 class MainClass {
    private static NCategoria ncategoria = new NCategoria();
    private static NProduto nproduto = new NProduto();
+   private static NSocio nsocio = new NSocio();
+
 
 
    public static void Main() {
+     Thread.CurrentThread.CurrentCulture = new CultureInfo("PT-BR");
      int opção = 0;
      Console.WriteLine ("------GitGames — site  de vendas de games ------");
      do{
@@ -16,6 +19,7 @@ class MainClass {
          switch(opção) {
            case 1 : PagCliente(); break;
            case 2 : PagVendedor(); break;
+           case 3 : PagSocio(); break;
             }
              }
        catch (Exception erro) {
@@ -30,6 +34,7 @@ class MainClass {
 
      Console.WriteLine("1 - Cliente - Acessar área de clientes");
      Console.WriteLine("2 - Vendedor - Acessar área de vendedores");
+     Console.WriteLine("3 - Sócios - Acessar área de empresas sócias");
      Console.WriteLine("0 - Fim");
      Console.Write("Informe uma opção: ");
      int opção = int.Parse(Console.ReadLine());
@@ -217,6 +222,97 @@ public static void ProdutoAtualizar() {
     // Exclui o produto
     nproduto.Excluir(p);
   }
+  public static void SocioListar() {
+    Console.WriteLine("----- Lista de sócios empresariais -----");
+    // Lista os sócios
+    List<Socio> cs = nsocio.Listar();
+    if (cs.Count == 0) {
+      Console.WriteLine("Nenhuma empresa cadastrada como sócia.");
+      return;
+    }
+    foreach(Socio c in cs) Console.WriteLine(c);
+    Console.WriteLine();  
+  }
+
+  public static void SocioInserir() {
+    Console.WriteLine("----- Inserção de Sócios -----");
+    Console.Write("Informe o nome da empresa que será associada.: ");
+    string nome = Console.ReadLine();
+    Console.Write("Informe a data de fundação (dd/mm/aaaa): ");
+    DateTime nasc = DateTime.Parse(Console.ReadLine());
+    // Instancia a classe de sócio
+    Socio c = new Socio { Nome = nome, Nascimento = nasc };
+    // Insere o sócio
+    nsocio.Inserir(c);
+  }
+
+  public static void SocioAtualizar() {
+    Console.WriteLine("----- Atualização de sócios -----");
+    CategoriaListar();
+    Console.Write("Informe o código da empresa sócia a ser atualizado: ");
+    int id = int.Parse(Console.ReadLine());
+    Console.Write("Informe o nome da empresa: ");
+    string nome = Console.ReadLine();
+    Console.Write("Informe a data de fundação da empresa (dd/mm/aaaa): ");
+    DateTime nasc = DateTime.Parse(Console.ReadLine());
+    // Instancia a classe de sócio
+    Socio c = new Socio { Id = id, Nome = nome, Nascimento = nasc };
+    // Atualiza o sócio
+    nsocio.Atualizar(c);
+  }
+
+  public static void SocioExcluir() {
+    Console.WriteLine("----- Exclusão de sócios -----");
+    CategoriaListar();
+    Console.Write("Informe o código do sócio a ser excluído: ");
+    int id = int.Parse(Console.ReadLine());
+    // Procura o cliente com esse id
+    Socio c = nsocio.Listar(id);
+    // Exclui o cliente do cadastro
+    nsocio.Excluir(c);
+  }
+
+public static void PagSocio() {
+     int acordo=0;
+     Console.WriteLine("----- Menu de sociedade  -----");
+     Console.WriteLine("----- Digite uma das opções para continuar  -----");
+
+       do{
+         try{
+           acordo=UsSocio();
+           switch(acordo) {
+             case 1: SocioListar(); break;
+             case 2: SocioInserir(); break;
+             case 3: SocioAtualizar(); break;
+             case 4: SocioExcluir(); break;
+             
+             
+     }
+     }
+         catch (Exception erro) {
+           Console.WriteLine(erro.Message);
+           acordo=100; }
+     }   while(acordo!=0);
+       Console.WriteLine ("Você voltou para o MENU PRINCIPAL! ..."); }
+
+
+
+public static int UsSocio() {
+     Console.WriteLine();
+     Console.WriteLine("----------------------------------");
+     Console.WriteLine("Digite uma das opções para continuar.");
+
+     Console.WriteLine("1- Ver empresas sócias.");
+     Console.WriteLine("2- Adicionar nova empresa como sócia.");
+     Console.WriteLine("3- Atualizar sócios");
+     Console.WriteLine("4- Excluir sócios");
+     Console.WriteLine("0 - Voltar para  o menu principal");
+     Console.Write("Informe uma opção: ");
+     int deal = int.Parse(Console.ReadLine());
+     Console.WriteLine();
+     return deal;
+}
+
 }
 
 
