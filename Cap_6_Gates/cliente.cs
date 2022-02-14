@@ -1,4 +1,5 @@
 using System;
+
 class Cliente : IComparable<Cliente> {
   // Propriedade do Cliente
   public int Id { get; set; }
@@ -8,8 +9,6 @@ class Cliente : IComparable<Cliente> {
     return this.Nome.CompareTo(obj.Nome);
   }
   public override string ToString() {
-    return Id + " - " + Nome + " - " + Nascimento.ToString("dd/MM/yyyy");
-
-    //Adicionar data de nascimento para o cliente
+    return Id + " - " + Nome + " - " + "Nascido em: " + Nascimento.ToString("dd/MM/yyyy");
   }
 }

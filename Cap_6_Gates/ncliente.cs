@@ -18,7 +18,7 @@ class NCliente {
   }
 
   public void Inserir(Cliente c) {
-    // Pega o id do cliente
+    // Gera o id do cliente
     int max = 0;
     foreach(Cliente obj in clientes)
       if (obj.Id > max) max = obj.Id;
@@ -41,3 +41,4 @@ class NCliente {
     // Remove o cliente da lista
     if (c != null) clientes.Remove(c);
   } 
+}

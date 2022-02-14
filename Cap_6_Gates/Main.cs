@@ -6,6 +6,9 @@ class MainClass {
    private static NCategoria ncategoria = new NCategoria();
    private static NProduto nproduto = new NProduto();
    private static NSocio nsocio = new NSocio();
+   private static NCliente ncliente = new NCliente();
+   private static Cliente clienteLogin = null;
+   
 
 
 
@@ -17,7 +20,7 @@ class MainClass {
        try{
          opção=Menu();
          switch(opção) {
-           case 1 : PagCliente(); break;
+           case 1 : ClienteLogin(); break;
            case 2 : PagVendedor(); break;
            case 3 : PagSocio(); break;
             }
@@ -49,8 +52,9 @@ class MainClass {
          try{
            seleção=Usuario();
            switch(seleção) {
-             case 5: CategoriaListar(); break;
-             case 6: ProdutoListar(); break;
+             case 1: CategoriaListar(); break;
+             case 2: ProdutoListar(); break;
+             case 3: ClienteDesconectar(); break;
      }
      }
          catch (Exception erro) {
@@ -77,6 +81,8 @@ class MainClass {
              case 6: CategoriaExcluir(); break;
              case 7: ProdutoAtualizar(); break;
              case 8: ProdutoExcluir(); break;
+             case 9: ClienteInserir(); break;
+             case 10: ClienteListar(); break;
              
      }
      }
@@ -123,8 +129,9 @@ class MainClass {
      Console.WriteLine("----------------------------------");
      Console.WriteLine("Digite uma das opções para continuar.");
 
-     Console.WriteLine("5 - Ver categorias de produtos disponíveis.");
-     Console.WriteLine("6 - Ver produtos disponíveis");
+     Console.WriteLine("1 - Ver categorias de produtos disponíveis.");
+     Console.WriteLine("2 - Ver produtos disponíveis");
+     Console.WriteLine("3- Desconectar");
      Console.WriteLine("8 - Voltar para o menu principal");
      Console.Write("Informe uma opção: ");
      int escolha = int.Parse(Console.ReadLine());
@@ -200,6 +207,8 @@ public static int MenuVendedor() {
      Console.WriteLine("6- Categoria excluir");
      Console.WriteLine("7- Produto atualizar");
      Console.WriteLine("8- Produto excluir");
+     Console.WriteLine("9- Adicionar uma nova pessoa á lista de clientes.");
+     Console.WriteLine("10- Ver lista de  clientes");
 
      Console.WriteLine("0 - Voltar para  o menu principal");
      Console.Write("Informe uma opção: ");
@@ -338,6 +347,67 @@ public static int UsSocio() {
      return deal;
 }
 
+
+
+public static int MenuClienteLogin() {
+    Console.WriteLine();
+    Console.WriteLine("----------------------------------");
+    Console.WriteLine("01 - Login");
+    Console.WriteLine("2 -  Retorna ao menu de usuário");
+    Console.WriteLine("0  - Fim");
+    Console.WriteLine("----------------------------------");
+    Console.Write("Informe uma opção: ");
+    int op = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+    return op; 
+}
+
+
+public static void ClienteInserir() {
+    Console.WriteLine("----- Adicionando Clientes -----");
+    Console.Write("Informe o nome do novo cliente: ");
+    string nome = Console.ReadLine();
+    Console.Write("Digite a data de nascimento do cliente(dd/mm/aaaa): ");
+    DateTime nasc = DateTime.Parse(Console.ReadLine());
+    // Instancia a classe de cliente
+    Cliente c = new Cliente { Nome = nome, Nascimento = nasc };
+    // Insere o cliente
+    ncliente.Inserir(c);
+  }
+
+    public static void ClienteListar() {
+    Console.WriteLine("----- Lista de Clientes -----");
+    // Lista os clientes
+    List<Cliente> cs = ncliente.Listar();
+    if (cs.Count == 0) {
+      Console.WriteLine("Nenhum cliente cadastrado");
+      return;
+    }
+    else{
+      foreach(Cliente c in cs) Console.WriteLine(c);
+      Console.WriteLine();}  
+  }
+
+
+public static void ClienteLogin() { 
+    Console.WriteLine("----- Login do Cliente -----");
+    ClienteListar();
+    
+    Console.Write("Informe o código do cliente para logar: ");
+    int id = int.Parse(Console.ReadLine());
+    // Procura o cliente com esse id
+    clienteLogin = ncliente.Listar(id);
+      PagCliente();
+      }
+    
+
+
+
+    public static void ClienteDesconectar() { 
+    Console.WriteLine("----- Desconectando da conta do Cliente -----");
+    clienteLogin = null;
+    Main();
+  }
 }
 
 
