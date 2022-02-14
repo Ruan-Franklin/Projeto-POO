@@ -146,9 +146,11 @@ class MainClass {
        Console.WriteLine("Nesse caso, dê uma olhada em nossos jogos de computador.");
        return;}
      
-     foreach(Categoria c in ct){
+     else{     
+      foreach(Categoria c in ct){
        Console.WriteLine(c);
        Console.WriteLine(); }
+  }
   }
   
 
