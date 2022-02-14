@@ -69,6 +69,8 @@ class MainClass {
          try{
            decisão=MenuVendedor();
            switch(decisão) {
+             case 1: CategoriaListar(); break;
+             case 2: ProdutoListar (); break;
              case 3: CategoriaInserir(); break;
              case 4: ProdutoInserir(); break;
              case 5: CategoriaAtualizar(); break;
@@ -130,8 +132,10 @@ class MainClass {
   public static void CategoriaListar() {
     Categoria[] ct = ncategoria.Listar();
      if(ct.Length==0){
-       Console.WriteLine("Não há nenhuma categoria cadastrada");
+       Console.WriteLine("Não há nenhuma categoria cadastrada pelos vendedores.");
+       Console.WriteLine("Nesse caso, dê uma olhada em nossos jogos de computador.");
        return;}
+     
      foreach(Categoria c in ct){
        Console.WriteLine(c);
        Console.WriteLine(); }
@@ -153,14 +157,19 @@ class MainClass {
   public static void CategoriaAtualizar() {
     Console.WriteLine("----- Atualização de Categorias -----");
     CategoriaListar();
-    Console.Write("Informe um código de categoria para alterá-la: ");
-    int id = int.Parse(Console.ReadLine());
-    Console.Write("Informe um novo nome para a categoria: ");
-    string descricao = Console.ReadLine();
-    // Instanciar a classe de Categoria
-    Categoria c = new Categoria(id, descricao);
-    // Inserção da categoria
-    ncategoria.Atualizar(c);
+       Categoria[] ct = ncategoria.Listar();
+     if(ct.Length==0){
+       Console.WriteLine();
+       return;}
+     else{
+       Console.Write("Informe um código de categoria para alterá-la: ");
+       int id = int.Parse(Console.ReadLine());
+       Console.Write("Informe um novo nome para a categoria: ");
+       string descrição = Console.ReadLine();
+       // Instanciar a classe de Categoria
+       Categoria c = new Categoria(id, descrição);
+       // Inserção da categoria
+       ncategoria.Atualizar(c);}
   }
   public static void CategoriaExcluir() {
     Console.WriteLine("----- Exclusão de Categorias -----");
@@ -177,7 +186,8 @@ public static int MenuVendedor() {
      Console.WriteLine();
      Console.WriteLine("----------------------------------");
      Console.WriteLine("Digite uma das opções para continuar.");
-
+     Console.WriteLine("1- Ver as categorias disponibilizadas para os clientes");
+     Console.WriteLine("2- Ver os produtos disponibilizados para os clientes.");
      Console.WriteLine("3- Inserir categoria de produtos.");
      Console.WriteLine("4- Inserir produto");
      Console.WriteLine("5- Categoria atualizar");
