@@ -89,7 +89,9 @@ class MainClass {
      Console.WriteLine("----- Lista de jogos disponíveis -----");
      Produto[] pt = nproduto.Listar();
      if(pt.Length==0){
-       Console.WriteLine("Nenhum produto foi cadastrado");
+       Console.WriteLine("Nenhum produto foi cadastrado por nossos vendedores, confira nossos exclusivos.");
+       Console.WriteLine("----- Exclusivos GitGames -----");
+       Console.WriteLine("Daylight, PC - 20 unidades, R$ 40,00");
        return;}
      foreach(Produto p in pt){
        Console.WriteLine(p);
@@ -174,12 +176,16 @@ class MainClass {
   public static void CategoriaExcluir() {
     Console.WriteLine("----- Exclusão de Categorias -----");
     CategoriaListar();
-    Console.Write("Informe um código de  categoria para exclui-la: ");
-    int id = int.Parse(Console.ReadLine());
-    // Procurar a categoria com esse id
-    Categoria c = ncategoria.Listar(id);
+    Categoria[] ct = ncategoria.Listar();
+     if(ct.Length==0){
+       Console.Write("Informe um código de  categoria para exclui-la: ");}
+    else{
+      int id = int.Parse(Console.ReadLine());
+       // Procurar a categoria com esse id
+      Categoria c = ncategoria.Listar(id);
     // Exclui a categoria do cadastro
-    ncategoria.Excluir(c);
+      ncategoria.Excluir(c);
+  }
   }
 
 public static int MenuVendedor() {
@@ -204,23 +210,28 @@ public static int MenuVendedor() {
 public static void ProdutoAtualizar() {
   Console.WriteLine("----- Atualização de Produtos -----");
     ProdutoListar();
-    Console.Write("Informe o código do produto a ser atualizado: ");
-    int id = int.Parse(Console.ReadLine());
-    Console.Write("Informe um novo nome para o produto: ");
-    string descrição = Console.ReadLine();
-    Console.Write("Informe o estoque do produto: ");
-    int quantidade = int.Parse(Console.ReadLine());
-    Console.Write("Informe o preço do produto: ");
-    double preço = double.Parse(Console.ReadLine());
-    CategoriaListar();
-    Console.Write("Informe o código da categoria do produto: ");
-    int idcategoria = int.Parse(Console.ReadLine());
-    // Seleciona a categoria a partir do id
-    Categoria c = ncategoria.Listar(idcategoria);    
-    // Instancia a classe de Produto
-    Produto p = new Produto(id, descrição, quantidade, preço, c);
-    // Atualiza o produto
-    nproduto.Atualizar(p);
+    Produto[] pt = nproduto.Listar();
+    if(pt.Length==0){
+      Console.WriteLine();
+       return;}
+    else{   
+      Console.Write("Informe o código do produto a ser atualizado: ");
+      int id = int.Parse(Console.ReadLine());
+      Console.Write("Informe um novo nome para o produto: ");
+      string descrição = Console.ReadLine();
+      Console.Write("Informe o estoque do produto: ");
+      int quantidade = int.Parse(Console.ReadLine());
+      Console.Write("Informe o preço do produto: ");
+      double preço = double.Parse(Console.ReadLine());
+      CategoriaListar();
+      Console.Write("Informe o código da categoria do produto: ");
+      int idcategoria = int.Parse(Console.ReadLine());
+      // Seleciona a categoria a partir do id
+      Categoria c = ncategoria.Listar(idcategoria);    
+      // Instancia a classe de Produto
+      Produto p = new Produto(id, descrição, quantidade, preço, c);
+      // Atualiza o produto
+      nproduto.Atualizar(p);}
   }
   public static void ProdutoExcluir() {
     Console.WriteLine("----- Exclusão de Produtos -----");
