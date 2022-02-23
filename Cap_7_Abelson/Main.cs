@@ -281,7 +281,13 @@ public static void ProdutoAtualizar() {
 
   public static void SocioAtualizar() {
     Console.WriteLine("----- Atualização de sócios -----");
-    CategoriaListar();
+    SocioListar();
+    List<Socio> st = nsocio.Listar();
+
+    if(st.Count==0){
+       Console.WriteLine();
+       return;}
+     else{
     Console.Write("Informe o código da empresa sócia a ser atualizado: ");
     int id = int.Parse(Console.ReadLine());
     Console.Write("Informe o nome da empresa: ");
@@ -292,6 +298,7 @@ public static void ProdutoAtualizar() {
     Socio c = new Socio { Id = id, Nome = nome, Nascimento = nasc };
     // Atualiza o sócio
     nsocio.Atualizar(c);
+  }
   }
 
   public static void SocioExcluir() {
