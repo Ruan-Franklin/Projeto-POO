@@ -1,2 +1,2 @@
 language = "csharp"
-run = "mcs -out:main.exe 'Cap_8_Lerdorf/Main.cs' 'Cap_8_Lerdorf/categoria.cs' 'Cap_8_Lerdorf/produto.cs'  'Cap_8_Lerdorf/ncategoria.cs' 'Cap_8_Lerdorf/nproduto.cs' 'Cap_8_Lerdorf/nsocio.cs' 'Cap_8_Lerdorf/socio.cs' 'Cap_8_Lerdorf/cliente.cs' 'Cap_8_Lerdorf/ncliente.cs' ; mono main.exe"
+run = "mcs -out:main.exe 'Cap_9_Hejlsberg/Main.cs' 'Cap_9_Hejlsberg/categoria.cs' 'Cap_9_Hejlsberg/produto.cs'  'Cap_9_Hejlsberg/ncategoria.cs' 'Cap_9_Hejlsberg/nproduto.cs' 'Cap_9_Hejlsberg/nsocio.cs' 'Cap_9_Hejlsberg/socio.cs' 'Cap_9_Hejlsberg/cliente.cs' 'Cap_9_Hejlsberg/ncliente.cs' ; mono main.exe"
