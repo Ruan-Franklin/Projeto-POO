@@ -60,6 +60,7 @@ class MainClass {
              case 2: ProdutoListar(); break;
              case 3: ClienteDesconectar(); break;
              case 4: ClienteCarrinhoEnxergar(); break;
+             case 5: ClienteInserirnoCarrinho(); break;
      }
      }
          catch (Exception erro) {
@@ -118,9 +119,9 @@ class MainClass {
     string descrição = Console.ReadLine();
     Console.Write("Informe o estoque do produto: ");
     int quantidade= int.Parse(Console.ReadLine());
-    Console.Write("Informe o preço do produto em R$ ");
+    Console.Write("Informe o preço do produto em R$:  ");
     double preço= int.Parse(Console.ReadLine());
-    Console.Write("Informe o código da categoria do produto:");
+    Console.Write("Informe o código da categoria do produto: ");
     int idcategoria=int.Parse(Console.ReadLine());
     //Seleciona o id da categoria
     Categoria c= ncategoria.Listar(idcategoria);
@@ -138,6 +139,7 @@ class MainClass {
      Console.WriteLine("2 - Ver produtos disponíveis");
      Console.WriteLine("3- Desconectar");
      Console.WriteLine("4-Consultar carrinho de compras");
+      Console.WriteLine("5- Adicionar produto ao carrinho.");
      Console.WriteLine("8 - Voltar para o menu principal");
      Console.Write("Informe uma opção: ");
      int escolha = int.Parse(Console.ReadLine());
@@ -454,9 +456,19 @@ public static void ClienteLogin() {
   }
   public static void ClienteCarrinhoEnxergar(){
     Console.WriteLine("----- Megazord do cliente -----");
+   // Analisa  se existe um carrinho de compras
+    if (clienteAquisição == null) {
+      Console.WriteLine("Nenhum produto foi encontrado noseu carrinho.");
+      return;
+    }
+    // Lista os produtos no carrinho
+    List<AquisiçãoItem> itens = naquisição.ItemListar(clienteAquisição);
+    foreach(AquisiçãoItem item in itens) Console.WriteLine(item);
+    Console.WriteLine();
+  }
     
   }
-}
+
 
 
                   
