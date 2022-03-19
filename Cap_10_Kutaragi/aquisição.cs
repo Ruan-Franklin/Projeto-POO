@@ -1,17 +1,17 @@
 using System;
 using System.Collections.Generic;
 
-class Bodega {
-  // Atributos da Bodega de itens
+class Aquisição {
+  // Atributos da Aquisição de itens
   private int id;
   private DateTime data;
   private bool carrinho;
   // Associação entre venda na "bodega" e cliente
   private Cliente cliente;
   // Associação entre bodega e itens de venda
-  private List<BodegaItem> itens = new List<BodegaItem>();
+  private List<AquisiçãoItem> itens = new List<AquisiçãoItem>();
 
-  public Bodega(DateTime data, Cliente cliente) {
+  public Aquisição(DateTime data, Cliente cliente) {
     this.data = data;
     this.carrinho = true;
     this.cliente = cliente;
@@ -48,9 +48,9 @@ class Bodega {
       return "Compra: " + id + " - " + data.ToString("dd/MM/yyyy") + " - Cliente: " + cliente.Nome;
   }
 
-  private BodegaItem ItemListar(Produto p) {
+  private AquisiçãoItem ItemListar(Produto p) {
     // Verificar se o produto p já está na lista de itens
-    foreach(BodegaItem vi in itens) 
+    foreach(AquisiçãoItem vi in itens) 
       if (vi.GetProduto() == p) return vi;
     return null;  
   }
@@ -62,9 +62,9 @@ class Bodega {
 
   public void ItemInserir(int quantidade, Produto p) {
     // Verificar se o produto p já está na lista de itens
-    BodegaItem item = ItemListar(p);
+    AquisiçãoItem item = ItemListar(p);
     if (item == null) {
-      item = new BodegaItem(quantidade, p);
+      item = new AquisiçãoItem(quantidade, p);
       itens.Add(item);
     }
     else
