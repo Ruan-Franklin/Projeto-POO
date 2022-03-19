@@ -7,7 +7,10 @@ class MainClass {
    private static NProduto nproduto = new NProduto();
    private static NSocio nsocio = new NSocio();
    private static NCliente ncliente = new NCliente();
+  private static NAquisição naquisição = new NAquisição();
    private static Cliente clienteLogin = null;
+   private static Aquisição clienteAquisição = null;
+
    
 
 
@@ -425,17 +428,18 @@ public static void ClienteLogin() {
     Console.Write("Informe o código id do produto a ser comprado: ");
     int id = int.Parse(Console.ReadLine());
     Console.Write("Informe a quantidade desejada: ");
-    int qtd = int.Parse(Console.ReadLine());
+    int quantidade = int.Parse(Console.ReadLine());
     // Procurar o produto pelo id
     Produto p = nproduto.Listar(id);
     // Verifica se o produto foi localizado
     if (p != null) {
       // Verifica se já existe um carrinho
-      if (clienteVenda == null)
-        clienteVenda = new Venda(DateTime.Now, clienteLogin);
+      if (clienteAquisição == null)
+        clienteAquisição = new Aquisição(DateTime.Now, clienteLogin);
       // Insere o produto no carrinho
-      nvenda.ItemInserir(clienteVenda, qtd, p);  
+      naquisição.ItemInserir(clienteAquisição, quantidade, p);  
     }
+ }
     
 
 

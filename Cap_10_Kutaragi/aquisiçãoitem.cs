@@ -1,12 +1,12 @@
 using System;
 
-class BodegaItem {
-  // Atributos do item de BodegaItem
+class AquisiçãoItem {
+  // Atributos do item de AquisiçãoItem
   private int quantidade;
   private double preço;
-  // Associação entre VendaItem e Produto
+  // Associação entre AquisiçãoItem e Produto
   private Produto produto;
-  public BodegaItem(int quantidade, Produto produto) {
+  public AquisiçãoItem(int quantidade, Produto produto) {
     this.quantidade = quantidade;
     this.preço = produto.GetPreço();
     this.produto = produto;

@@ -6,9 +6,9 @@ class Aquisição {
   private int id;
   private DateTime data;
   private bool carrinho;
-  // Associação entre venda na "bodega" e cliente
+  // Associação entre venda na aquisição e cliente
   private Cliente cliente;
-  // Associação entre bodega e itens de venda
+  // Associação entre aquisição e itens de venda
   private List<AquisiçãoItem> itens = new List<AquisiçãoItem>();
 
   public Aquisição(DateTime data, Cliente cliente) {
@@ -55,7 +55,7 @@ class Aquisição {
     return null;  
   }
 
-  public List<BodegaItem> ItemListar() {
+  public List<AquisiçãoItem> ItemListar() {
     // Retornar a lista de itens
     return itens;
   }
