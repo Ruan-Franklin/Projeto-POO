@@ -59,8 +59,8 @@ class MainClass {
              case 1: CategoriaListar(); break;
              case 2: ProdutoListar(); break;
              case 3: ClienteDesconectar(); break;
-             case 4: ClienteCarrinhoVisualizar(); break;
-             case 5: ClienteInserirnoCarrinho(); break;
+             case 4: ClienteInserirnoCarrinho(); break;
+             case 5: ClienteCarrinhoVisualizar(); break;
      }
      }
          catch (Exception erro) {
@@ -138,8 +138,8 @@ class MainClass {
      Console.WriteLine("1 - Ver categorias de produtos disponíveis.");
      Console.WriteLine("2 - Ver produtos disponíveis");
      Console.WriteLine("3- Desconectar");
-     Console.WriteLine("4-Consultar carrinho de compras");
-      Console.WriteLine("5- Adicionar produto ao carrinho.");
+     Console.WriteLine("4-Adicionar produto ao carrinho de compras");
+      Console.WriteLine("5- Consultar carrinho de compras");
      Console.WriteLine("8 - Voltar para o menu principal");
      Console.Write("Informe uma opção: ");
      int escolha = int.Parse(Console.ReadLine());
@@ -276,7 +276,7 @@ public static void ProdutoAtualizar() {
 
   public static void SocioInserir() {
     Console.WriteLine("----- Inserção de Sócios -----");
-    Console.Write("Informe o nome da empresa que será associada.: ");
+    Console.Write("Informe o nome da empresa que será associada: ");
     string nome = Console.ReadLine();
     Console.Write("Informe a data de fundação (dd/mm/aaaa): ");
     DateTime nasc = DateTime.Parse(Console.ReadLine());
@@ -397,7 +397,7 @@ public static void ClienteInserir() {
     // Lista os clientes
     List<Cliente> cs = ncliente.Listar();
     if (cs.Count == 0) {
-      Console.WriteLine("Nenhum cliente cadastrado, é necessário que um vendedor cadastre seus clientes.");
+      Console.WriteLine("Nenhum cliente cadastrado, é necessário que um vendedor cadastre os seus clientes.");
       Console.WriteLine();
       Console.WriteLine();
       return;
@@ -447,7 +447,9 @@ public static void ClienteLogin() {
 
 
     public static void ClienteDesconectar() { 
-    Console.WriteLine("----- Voltando para o menu principal -----");
+    Console.WriteLine("----- Voltando para o menu principal ------------");
+    Console.WriteLine("-------------------------------------------------");
+      Console.WriteLine("-------------------------------------------------");
     Console.WriteLine();
     Console.WriteLine();
       

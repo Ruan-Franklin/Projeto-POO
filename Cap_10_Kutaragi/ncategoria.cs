@@ -38,13 +38,13 @@ class NCategoria {
   }
 
   public void Excluir(Categoria c) {
-    // Verifica se a categoria está cadastrada
+    // Verifica se a categoria foi  cadastrada por algum vendedor.
     int n = Indice(c);
     if (n == -1) return;
     for (int i = n; i < nc - 1; i++)
       categorias[i] = categorias[i + 1];
     nc--;
-    // Recuperar a lista de produtos da categoria
+    // Recupera a lista de produtos da categoria
     Produto[] ps = c.ProdutoListar();
     foreach(Produto p in ps) p.SetCategoria(null); 
   } 
