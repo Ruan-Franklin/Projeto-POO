@@ -59,7 +59,7 @@ class MainClass {
              case 1: CategoriaListar(); break;
              case 2: ProdutoListar(); break;
              case 3: ClienteDesconectar(); break;
-             case 4: ClienteCarrinhoEnxergar(); break;
+             case 4: ClienteCarrinhoVisualizar(); break;
              case 5: ClienteInserirnoCarrinho(); break;
      }
      }
@@ -454,7 +454,7 @@ public static void ClienteLogin() {
     clienteLogin = null;
     Main();
   }
-  public static void ClienteCarrinhoEnxergar(){
+  public static void ClienteCarrinhoVisualizar(){
     Console.WriteLine("----- Megazord do cliente -----");
    // Analisa  se existe um carrinho de compras
     if (clienteAquisição == null) {
