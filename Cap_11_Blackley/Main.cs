@@ -63,13 +63,15 @@ class MainClass {
              case 5: ClienteCarrinhoVisualizar(); break;
              case 6: ClienteCarrinhoAdquirir(); break;
              case 7: ClienteVendaListar(); break;
+             case 8: ClienteCarrinhoEsvaziar(); break;
+             
             
      }
      }
          catch (Exception erro) {
            Console.WriteLine(erro.Message);
            seleção=100; }
-     }   while(seleção!=8);
+     }   while(seleção!=9);
        Console.WriteLine ("Você voltou para o menu principal!....."); }
        
  
@@ -145,8 +147,9 @@ class MainClass {
       Console.WriteLine("5- Consultar carrinho de compras");
       Console.WriteLine("6- Confirma a compra de um produto");
       Console.WriteLine("7- Compras registradas");
+      Console.WriteLine("8- Esvaziar o seu carrinho de compras ");
 
-     Console.WriteLine("8 - Voltar para o menu principal");
+     Console.WriteLine("9 - Voltar para o menu principal");
      Console.Write("Informe uma opção: ");
      int escolha = int.Parse(Console.ReadLine());
      Console.WriteLine();
@@ -466,7 +469,7 @@ public static void ClienteLogin() {
     Console.WriteLine("----- Megazord do cliente -----");
    // Analisa  se existe um carrinho de compras
     if (clienteAquisição == null) {
-      Console.WriteLine("Nenhum produto foi encontrado noseu carrinho.");
+      Console.WriteLine("Nenhum produto foi encontrado no seu carrinho.");
       return;
     }
     // Lista os produtos no carrinho
@@ -481,9 +484,12 @@ public static void ClienteCarrinhoAdquirir() {
       Console.WriteLine("Não foi encontrado nenhum produto no carrinho");
       return;
     }
-    // Salva a compra do cliente
+  Console.WriteLine("-----  ----- -----  -----");
+  Console.WriteLine("-----  ----- -----  -----");
+  Console.WriteLine("Você confirmou a compra dos itens que estavam em seu carrinho.");
+    // Salva a aquisição do cliente
     naquisição.Inserir(clienteAquisição, false);
-    // Inicia um novo carrinho
+    // Começa um novo carrinho
     clienteAquisição = null;
   }
   
@@ -502,6 +508,11 @@ public static void ClienteCarrinhoAdquirir() {
         Console.WriteLine("  " + item);
     }    
     Console.WriteLine();
+  }
+    public static void ClienteCarrinhoEsvaziar() { 
+    // Verificar se existe algum carrinho no sistema.
+    if (clienteAquisição != null)
+      naquisição.ItemExcluir(clienteAquisição);
   }
 }
 
