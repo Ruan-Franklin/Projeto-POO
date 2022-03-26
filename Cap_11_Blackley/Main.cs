@@ -142,7 +142,7 @@ class MainClass {
      Console.WriteLine("3- Desconectar");
      Console.WriteLine("4-Adicionar produto ao carrinho de compras");
       Console.WriteLine("5- Consultar carrinho de compras");
-      Console.WriteLine("6- Confirma a compra de um produto.")
+      Console.WriteLine("6- Confirma a compra de um produto");
      Console.WriteLine("8 - Voltar para o menu principal");
      Console.Write("Informe uma opção: ");
      int escolha = int.Parse(Console.ReadLine());
@@ -474,12 +474,13 @@ public static void ClienteLogin() {
 
 public static void ClienteCarrinhoAdquirir() { 
     // Verifica se já há um carrinho devidamente registrado em nosso sistema.
-    if (clienteVenda == null) {
+    if (clienteAquisição == null) {
       Console.WriteLine("Não foi encontrado nenhum produto no carrinho");
       return;
     }
   
   }
+}
 
 
 
