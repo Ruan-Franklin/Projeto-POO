@@ -62,6 +62,7 @@ class MainClass {
              case 4: ClienteInserirnoCarrinho(); break;
              case 5: ClienteCarrinhoVisualizar(); break;
              case 6: ClienteCarrinhoAdquirir(); break;
+             case 7: ClienteVendaListar(); break;
             
      }
      }
@@ -143,6 +144,8 @@ class MainClass {
      Console.WriteLine("4-Adicionar produto ao carrinho de compras");
       Console.WriteLine("5- Consultar carrinho de compras");
       Console.WriteLine("6- Confirma a compra de um produto");
+      Console.WriteLine("7- Compras registradas");
+
      Console.WriteLine("8 - Voltar para o menu principal");
      Console.Write("Informe uma opção: ");
      int escolha = int.Parse(Console.ReadLine());
@@ -478,7 +481,27 @@ public static void ClienteCarrinhoAdquirir() {
       Console.WriteLine("Não foi encontrado nenhum produto no carrinho");
       return;
     }
+    // Salva a compra do cliente
+    naquisição.Inserir(clienteAquisição, false);
+    // Inicia um novo carrinho
+    clienteAquisição = null;
+  }
   
+
+   public static void ClienteVendaListar() { 
+    Console.WriteLine("----- Minhas Compras -----");
+    // Listar as compras do cliente
+    List<Aquisição> vs = naquisição.Listar(clienteLogin);
+    if (vs.Count == 0) {
+      Console.WriteLine("Nenhuma compra cadastrada no sistema");
+      return;
+    }
+    foreach(Aquisição a in vs) {
+      Console.WriteLine(a);
+      foreach (AquisiçãoItem item in naquisição.ItemListar(a))
+        Console.WriteLine("  " + item);
+    }    
+    Console.WriteLine();
   }
 }
 
