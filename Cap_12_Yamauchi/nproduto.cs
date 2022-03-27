@@ -1,5 +1,6 @@
 using System;
 
+
 class NProduto {
   private Produto[] produtos = new Produto[10];
   private int np;
