@@ -1,11 +1,16 @@
 using System;
 
-class Categoria {
+public class Categoria {
   private int id;
   private string descrição;
   private Produto[] produtos = new Produto[10];
   private int np;
-  public Categoria(int id, string descrição) {
+//Propriedades e construtor exigidos na serialização
+  //É necessário ter membros públicos para serem serializados.
+  public int Id{get => id; set => id = value;}
+  public string Descrição{get => descrição; set => descrição = value;}
+public Categoria(){} //Esse construtor sem nada é necessário para que a serialização funcione.
+  public Categoria(int id, string descrição) { 
     this.id = id;
     this.descrição = descrição;
   }

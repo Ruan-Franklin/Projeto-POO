@@ -1,6 +1,6 @@
 using System;
-
-class Produto {
+//A classe produto precisa ser pública, para que a serialização da classe Categoria funcione.
+public class Produto {
   private int id;
   private string descrição;
   private int quantidade;

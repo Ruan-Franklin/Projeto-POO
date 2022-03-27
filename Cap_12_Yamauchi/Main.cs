@@ -17,6 +17,15 @@ class MainClass {
 
    public static void Main() {
      Thread.CurrentThread.CurrentCulture = new CultureInfo("PT-BR");
+     try{
+       ncategoria.Abrir();
+     
+     }
+     catch(Exception erro){
+       Console.WriteLine(erro.Message);
+       
+       
+     }
      int opção = 0;
      Console.WriteLine ("------GitGames — site  de vendas de games ------");
      Console.WriteLine("Usuário, seja bem-vindo(a)");
@@ -33,6 +42,13 @@ class MainClass {
          Console.WriteLine(erro.Message);
          opção=100; }
      } while(opção!=0);
+     try{
+       ncategoria.Salvar();
+     }
+     catch(Exception erro){
+       Console.WriteLine(erro.Message);
+       
+     }
      Console.WriteLine ("Acesso finalizado, obrigado!....."); }
    public static int Menu() {
      Console.WriteLine();
