@@ -1,11 +1,26 @@
 using System;
 //A classe produto precisa ser pública, para que a serialização da classe Categoria funcione.
 public class Produto {
+  //Atributos do produto
   private int id;
   private string descrição;
   private int quantidade;
   private double preço;
+  private int categoriaId;
+
+  //Associação entre categoria e produto
   private Categoria categoria;
+  
+  //Propriedades do produto
+  public int Id { get => id; set => id = value; }
+  public string Descrição { get => descrição; set => descrição = value; }
+  public int Quantidade { get => quantidade; set => quantidade = value; }
+  public double Preço { get => preço; set => preço = value; }
+  public int CategoriaId { get => categoriaId; set => categoriaId = value; }
+  //Construtor que não recebe parâmetros
+  public Produto() { }
+
+  //Construtores
   public Produto(int id, string descrição, int quantidade, double preço) {
     this.id = id;
     this.descrição = descrição;
@@ -14,7 +29,10 @@ public class Produto {
   }
   public Produto(int id, string descrição, int quantidade, double preço, Categoria categoria) : this(id, descrição, quantidade, preço) {
     this.categoria = categoria;
+    this.categoriaId = categoria.GetId();
+
   }
+  //Métodos de acesso
   public void SetId(int id) {
     this.id = id;
   }
@@ -29,6 +47,8 @@ public class Produto {
   }
   public void SetCategoria(Categoria categoria) {
     this.categoria = categoria;
+    this.categoriaId = categoria.GetId();
+
   }
   public int GetId() {
     return id;

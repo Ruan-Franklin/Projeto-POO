@@ -1,9 +1,35 @@
 using System;
+using System.Xml.Serialization;
+using System.Text;
+using System.IO;
 
 
 class NProduto {
   private Produto[] produtos = new Produto[10];
   private int np;
+
+  public void Abrir() {
+  //  Arquivo<Produto[]> f = new Arquivo<Produto[]>();
+    //produtos = f.Abrir("./produtos.xml");
+   // np = produtos.Length;
+   // AtualizarCategoria();
+
+    XmlSerializer xml = new XmlSerializer(typeof(Produto[]));
+    StreamReader f = new StreamReader("./produtos.xml", Encoding.Default);
+    produtos = (Produto[]) xml.Deserialize(f);
+    f.Close();
+    np = produtos.Length;
+    //AtualizarCategoria();
+  }
+  public void Salvar() {
+  //  Arquivo<Produto[]> f = new Arquivo<Produto[]>();
+    //f.Salvar("./produtos.xml", Listar());
+
+    XmlSerializer xml = new XmlSerializer(typeof(Produto[]));
+    StreamWriter f = new StreamWriter("./produtos.xml", false, Encoding.Default);
+    xml.Serialize(f, Listar());
+    f.Close();
+  }
 
   public Produto[] Listar() {
     Produto[] p = new Produto[np];

@@ -19,6 +19,8 @@ class MainClass {
      Thread.CurrentThread.CurrentCulture = new CultureInfo("PT-BR");
      try{
        ncategoria.Abrir();
+       nproduto.Abrir();
+
      
      }
      catch(Exception erro){
@@ -44,6 +46,8 @@ class MainClass {
      } while(opção!=0);
      try{
        ncategoria.Salvar();
+       nproduto.Salvar();
+
      }
      catch(Exception erro){
        Console.WriteLine(erro.Message);
