@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
 class MainClass {
-   private static NCategoria ncategoria = new NCategoria();
-   private static NProduto nproduto = new NProduto();
+   private static NCategoria ncategoria = NCategoria.Singleton;
+   private static NProduto nproduto = NProduto.Singleton;
    private static NSocio nsocio = new NSocio();
    private static NCliente ncliente = new NCliente();
   private static NAquisição naquisição = new NAquisição();

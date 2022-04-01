@@ -6,6 +6,14 @@ using System.IO;
 
 
 class NCategoria {
+  //Construtor Singleton.
+  private NCategoria(){ }
+  //Instanciando a categoria
+  static NCategoria obj= new NCategoria();
+  //Método público que testa se tem um objeto da classe instanciado. Retorna a instância da classe instanciada. Tem uma propriedade chamada de Singleton.
+  public static NCategoria Singleton{get =>obj;}
+  
+
   private Categoria[] categorias = new Categoria[10];
   private int nc;
   

@@ -5,6 +5,13 @@ using System.IO;
 
 
 class NProduto {
+   //Construtor Singleton.
+  private NProduto(){ }
+  //Instanciando a categoria
+  static NProduto obj =new NProduto();
+  //Método público que testa se tem um objeto da classe instanciado. Retorna a instância da classe instanciada. Tem uma propriedade chamada de Singleton.
+  public static NProduto Singleton{get =>obj;}
+  
   private Produto[] produtos = new Produto[10];
   private int np;
 
@@ -19,7 +26,24 @@ class NProduto {
     produtos = (Produto[]) xml.Deserialize(f);
     f.Close();
     np = produtos.Length;
-    //AtualizarCategoria();
+    AtualizarCategoria();
+  }
+  //É necessário atribuir novamente a categoria dos produtos.
+  //Operação privada de atualizar categoria:
+  private void AtualizarCategoria(){
+    //AtualizarCategoria() percorre o vetor de produtos para atualizar a categoria de produtos.
+    for(int i=0 ; i<np ; i++){
+      //Cada produto no vetor
+      Produto p = produtos[i];
+     //Recuperar a categoria do produto
+      Categoria c = NCategoria.Singleton.Listar(p.CategoriaId);
+    //Associação entre produto e categoria
+      if(c!=null){
+        p.SetCategoria(c);
+        c.ProdutoInserir(p);
+      
+    }
+    }
   }
   public void Salvar() {
   //  Arquivo<Produto[]> f = new Arquivo<Produto[]>();
