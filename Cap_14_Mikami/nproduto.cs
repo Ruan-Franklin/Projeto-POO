@@ -1,7 +1,4 @@
 using System;
-using System.Xml.Serialization;
-using System.Text;
-using System.IO;
 
 
 class NProduto {
@@ -72,32 +69,6 @@ public void Atualizar(Produto p) {
     // Remove o produto de sua categoria
     Categoria c = p.GetCategoria();
     if (c != null) c.ProdutoExcluir(p);  
-  }
-
-
-  //Métodos abrir e salvar para produtos
-  
-   public void Abrir() {
-   // Arquivo<Categoria[]> f = new Arquivo<Categoria[]>();
-    //categorias = f.Abrir("./categorias.xml");
-//    nc = categorias.Length;
-     //Vetor de produto:
-    XmlSerializer xml = new XmlSerializer(typeof(Produto[]));
-    StreamReader f = new StreamReader("./produtos.xml", Encoding.Default);
-     //Coloca os dados que recupera do arquivo no vetor produtos
-    produtos = (Produto[]) xml.Deserialize(f); 
-    f.Close();
-     //A quantidade de produtos que temos é o tamanho do vetor
-    np = produtos.Length;
-  }
-
-  public void Salvar() {
-    //Arquivo<Categoria[]> f = new Arquivo<Categoria[]>();
-    //f.Salvar("./categorias.xml", Listar());
-    XmlSerializer xml = new XmlSerializer(typeof(Produto[]));
-    StreamWriter f = new StreamWriter("./produtos.xml", false, Encoding.Default);
-    xml.Serialize(f, Listar());
-    f.Close();
   }
 
 

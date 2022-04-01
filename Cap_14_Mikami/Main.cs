@@ -17,11 +17,8 @@ class MainClass {
 
    public static void Main() {
      Thread.CurrentThread.CurrentCulture = new CultureInfo("PT-BR");
-
-     //Métodos de abrir 
      try{
        ncategoria.Abrir();
-       nproduto.Abrir();
      
      }
      catch(Exception erro){
@@ -45,10 +42,8 @@ class MainClass {
          Console.WriteLine(erro.Message);
          opção=100; }
      } while(opção!=0);
-     //Métodos de salvar
      try{
        ncategoria.Salvar();
-       nproduto.Salvar();
      }
      catch(Exception erro){
        Console.WriteLine(erro.Message);
@@ -539,4 +534,4 @@ public static void ClienteCarrinhoAdquirir() {
 
 
 
-                  //Último vídeo pausado em 9:06
+                  
