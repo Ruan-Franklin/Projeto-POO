@@ -1,2 +1,2 @@
 language = "csharp"
-run = "mcs -out:main.exe 'Cap_15_Page/Main.cs' 'Cap_15_Page/categoria.cs' 'Cap_15_Page/produto.cs'  'Cap_15_Page/ncategoria.cs' 'Cap_15_Page/nproduto.cs' 'Cap_15_Page/nsocio.cs' 'Cap_15_Page/socio.cs' 'Cap_15_Page/cliente.cs' 'Cap_15_Page/ncliente.cs' 'Cap_15_Page/aquisição.cs' 'Cap_15_Page/aquisiçãoitem.cs' 'Cap_15_Page/naquisição.cs'; mono main.exe"
+run = "mcs -out:main.exe 'Cap_15_Page/Main.cs' 'Cap_15_Page/categoria.cs' 'Cap_15_Page/produto.cs'  'Cap_15_Page/ncategoria.cs' 'Cap_15_Page/nproduto.cs' 'Cap_15_Page/nsocio.cs' 'Cap_15_Page/socio.cs' 'Cap_15_Page/cliente.cs' 'Cap_15_Page/ncliente.cs' 'Cap_15_Page/aquisição.cs' 'Cap_15_Page/aquisiçãoitem.cs' 'Cap_15_Page/naquisição.cs' 'Cap_15_Page/arquivo.cs'; mono main.exe"
