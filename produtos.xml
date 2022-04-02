@@ -7,4 +7,11 @@
     <Preço>100</Preço>
     <CategoriaId>1</CategoriaId>
   </Produto>
+  <Produto>
+    <Id>2</Id>
+    <Descrição>Resident Evill Vilage</Descrição>
+    <Quantidade>19</Quantidade>
+    <Preço>40</Preço>
+    <CategoriaId>2</CategoriaId>
+  </Produto>
 </ArrayOfProduto>
