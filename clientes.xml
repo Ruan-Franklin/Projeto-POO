@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCliente xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Cliente>
+    <Id>2</Id>
+    <Nome>Gilbert</Nome>
+    <Nascimento>1971-09-07T00:00:00</Nascimento>
+  </Cliente>
+  <Cliente>
+    <Id>1</Id>
+    <Nome>Ruan Franklin</Nome>
+    <Nascimento>2002-05-06T00:00:00</Nascimento>
+  </Cliente>
+</ArrayOfCliente>

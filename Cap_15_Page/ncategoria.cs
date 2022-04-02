@@ -65,23 +65,24 @@ class NCategoria {
   }
 
   public void Abrir() {
-   // Arquivo<Categoria[]> f = new Arquivo<Categoria[]>();
-    //categorias = f.Abrir("./categorias.xml");
-//    nc = categorias.Length;
-    XmlSerializer xml = new XmlSerializer(typeof(Categoria[]));
-    StreamReader f = new StreamReader("./categorias.xml", Encoding.Default);
-    categorias = (Categoria[]) xml.Deserialize(f);
-    f.Close();
-    nc = categorias.Length;
+    //Um objeto da classe arquivo recebe um parâmetro de tipo.
+   Arquivo<Categoria[]> f = new Arquivo<Categoria[]>();
+    categorias = f.Abrir("./categorias.xml");
+   nc = categorias.Length;
+  //  XmlSerializer xml = new XmlSerializer(typeof(Categoria[]));
+  //  StreamReader f = new StreamReader("./categorias.xml", Encoding.Default);
+   // categorias = (Categoria[]) xml.Deserialize(f);
+   // f.Close();
+   // nc = categorias.Length;
   }
 
   public void Salvar() {
-    //Arquivo<Categoria[]> f = new Arquivo<Categoria[]>();
-    //f.Salvar("./categorias.xml", Listar());
-    XmlSerializer xml = new XmlSerializer(typeof(Categoria[]));
-    StreamWriter f = new StreamWriter("./categorias.xml", false, Encoding.Default);
-    xml.Serialize(f, Listar());
-    f.Close();
+    Arquivo<Categoria[]> f = new Arquivo<Categoria[]>();
+    f.Salvar("./categorias.xml", Listar());
+    //XmlSerializer xml = new XmlSerializer(typeof(Categoria[]));
+   // StreamWriter f = new StreamWriter("./categorias.xml", false, Encoding.Default);
+    //xml.Serialize(f, Listar());
+   // f.Close();
   }
 
   

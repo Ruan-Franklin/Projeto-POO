@@ -6,7 +6,7 @@ class MainClass {
    private static NCategoria ncategoria = NCategoria.Singleton;
    private static NProduto nproduto = NProduto.Singleton;
    private static NSocio nsocio = new NSocio();
-   private static NCliente ncliente = new NCliente();
+   private static NCliente ncliente = NCliente.Singleton;
   private static NAquisição naquisição = new NAquisição();
    private static Cliente clienteLogin = null;
    private static Aquisição clienteAquisição = null;
@@ -20,6 +20,7 @@ class MainClass {
      try{
        ncategoria.Abrir();
        nproduto.Abrir();
+       ncliente.Abrir();
 
      
      }
@@ -47,6 +48,7 @@ class MainClass {
      try{
        ncategoria.Salvar();
        nproduto.Salvar();
+       ncliente.Salvar();
 
      }
      catch(Exception erro){

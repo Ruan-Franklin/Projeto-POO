@@ -1,6 +1,7 @@
 using System;
 
-class Cliente : IComparable<Cliente> {
+//Para fazer a serialização da classe cliente, ela precisa ser pública.
+public class Cliente : IComparable<Cliente> {
   // Propriedade do Cliente
   public int Id { get; set; }
   public string Nome { get; set; }
