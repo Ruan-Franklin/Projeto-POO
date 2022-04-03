@@ -2,12 +2,29 @@ using System;
 using System.Collections.Generic;
 
 class NSocio {
+  //Singleton da classe de negócio de sócio
+  private NSocio() { }
+  static NSocio obj = new NSocio();
+  public static NSocio Singleton { get => obj; }
+
+  //Tipo genérico de sócio
+  
   private List<Socio> socios = new List<Socio>();
 
   public List<Socio> Listar() {
     // Retorna uma listas com os sócios cadastrados
     socios.Sort();
     return socios;
+  }
+
+   public void Abrir() {
+    Arquivo<List<Socio>> f = new Arquivo<List<Socio>>();
+    socios = f.Abrir("./socios.xml");
+  }
+
+  public void Salvar() {
+    Arquivo<List<Socio>> f = new Arquivo<List<Socio>>();
+    f.Salvar("./socios.xml", Listar());
   }
 
   public Socio Listar(int id) {

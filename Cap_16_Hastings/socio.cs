@@ -1,7 +1,7 @@
 using System;
-
-class Socio : IComparable<Socio> {
-  // Propriedade do Cliente
+//Para fazer a serialização na classe de sócio, ela deve ser pública.
+public class Socio : IComparable<Socio> {
+  // Propriedade do Sócio
   public int Id { get; set; }
   public string Nome { get; set; }
   public DateTime Nascimento { get; set; }

@@ -5,7 +5,7 @@ using System.Threading;
 class MainClass {
    private static NCategoria ncategoria = NCategoria.Singleton;
    private static NProduto nproduto = NProduto.Singleton;
-   private static NSocio nsocio = new NSocio();
+   private static NSocio nsocio = NSocio.Singleton;
    private static NCliente ncliente = NCliente.Singleton;
   private static NAquisição naquisição = new NAquisição();
    private static Cliente clienteLogin = null;
@@ -21,6 +21,7 @@ class MainClass {
        ncategoria.Abrir();
        nproduto.Abrir();
        ncliente.Abrir();
+       nsocio.Abrir();
 
      
      }
@@ -49,6 +50,7 @@ class MainClass {
        ncategoria.Salvar();
        nproduto.Salvar();
        ncliente.Salvar();
+       nsocio.Salvar();
 
      }
      catch(Exception erro){
