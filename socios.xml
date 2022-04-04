@@ -5,4 +5,9 @@
     <Nome>Microsoft</Nome>
     <Nascimento>1975-04-04T00:00:00</Nascimento>
   </Socio>
+  <Socio>
+    <Id>2</Id>
+    <Nome>Sony</Nome>
+    <Nascimento>1946-05-07T00:00:00</Nascimento>
+  </Socio>
 </ArrayOfSocio>
