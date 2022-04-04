@@ -2,6 +2,13 @@ using System;
 using System.Collections.Generic;
 
 class NAquisição {
+ //Construtor Singleton.
+  private NAquisição(){ }
+  //Instanciando a categoria
+  static NAquisição obj= new NAquisição();
+  //Método público que testa se tem um objeto da classe instanciado. Retorna a instância da classe instanciada. Tem uma propriedade chamada de Singleton.
+  public static NAquisição Singleton{get =>obj;}
+  
   private List<Aquisição> aquisições = new List<Aquisição>();
 
   public List<Aquisição> Listar() {
@@ -50,4 +57,16 @@ class NAquisição {
     // Remover todos os itens da provável aquisição de um produto
     a.ItemExcluir();
   }
+
+  public void Abrir() {
+    //Um objeto da classe arquivo recebe um parâmetro de tipo.
+   Arquivo<List<Aquisição>> f = new Arquivo<List<Aquisição>>();
+    aquisições = f.Abrir("./aquisições.xml");
+  }
+
+  public void Salvar() {
+    Arquivo<List<Aquisição>> f = new Arquivo<List<Aquisição>>();
+    f.Salvar("./aquisições.xml", Listar());
+  }
+  
 }

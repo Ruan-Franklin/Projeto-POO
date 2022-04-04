@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAquisição xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Aquisição>
+    <Id>1</Id>
+    <Data>2022-04-04T21:19:56.892009+00:00</Data>
+    <Carrinho>false</Carrinho>
+    <ClienteId>1</ClienteId>
+    <Itens>
+      <AquisiçãoItem>
+        <Quantidade>2</Quantidade>
+        <Preço>100</Preço>
+        <ProdutoId>1</ProdutoId>
+      </AquisiçãoItem>
+    </Itens>
+  </Aquisição>
+  <Aquisição>
+    <Id>2</Id>
+    <Data>2022-04-04T21:21:19.272874+00:00</Data>
+    <Carrinho>false</Carrinho>
+    <ClienteId>2</ClienteId>
+    <Itens>
+      <AquisiçãoItem>
+        <Quantidade>2</Quantidade>
+        <Preço>40</Preço>
+        <ProdutoId>2</ProdutoId>
+      </AquisiçãoItem>
+    </Itens>
+  </Aquisição>
+</ArrayOfAquisição>

@@ -7,7 +7,7 @@ class MainClass {
    private static NProduto nproduto = NProduto.Singleton;
    private static NSocio nsocio = NSocio.Singleton;
    private static NCliente ncliente = NCliente.Singleton;
-  private static NAquisição naquisição = new NAquisição();
+  private static NAquisição naquisição = NAquisição.Singleton;
    private static Cliente clienteLogin = null;
    private static Aquisição clienteAquisição = null;
 
@@ -22,6 +22,7 @@ class MainClass {
        nproduto.Abrir();
        ncliente.Abrir();
        nsocio.Abrir();
+       naquisição.Abrir();
 
      
      }
@@ -51,6 +52,7 @@ class MainClass {
        nproduto.Salvar();
        ncliente.Salvar();
        nsocio.Salvar();
+       naquisição.Salvar();
 
      }
      catch(Exception erro){
@@ -541,5 +543,4 @@ public static void ClienteCarrinhoAdquirir() {
 }
 
 
-
-                  
+//Terminei o último vídeo em 13:29.

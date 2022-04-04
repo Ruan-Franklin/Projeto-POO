@@ -1,20 +1,37 @@
 using System;
 using System.Collections.Generic;
 
-class Aquisição {
+//Para a classe de aquisição ser serializada, ela precisa ser pública.
+public class Aquisição {
   // Atributos da Aquisição de itens
   private int id;
   private DateTime data;
   private bool carrinho;
   // Associação entre venda na aquisição e cliente
   private Cliente cliente;
+  //Nesse caso, vamos gravar só o id do cliente.
+  private int clienteId;
   // Associação entre aquisição e itens de venda
   private List<AquisiçãoItem> itens = new List<AquisiçãoItem>();
+
+  //Propriedades da aquisição
+  //Esses serão os dados gravados quando gerarmos um arquivo XML da parte de venda.
+
+  public int Id{get => id; set => id=value;}
+  public DateTime Data{get => data; set => data=value;}
+  public bool Carrinho{get => carrinho; set => carrinho=value;}
+  public int ClienteId{get => clienteId; set => clienteId=value;}
+  public List<AquisiçãoItem> Itens{get => itens; set => itens=value;}
+//A gente precisa ter um construtor sem parâmetro, para que a serialização funcione.
+  public Aquisição(){}
+
+
 
   public Aquisição(DateTime data, Cliente cliente) {
     this.data = data;
     this.carrinho = true;
     this.cliente = cliente;
+    this.clienteId=cliente.Id;
   }
   
   public void SetId(int id) {
@@ -28,6 +45,7 @@ class Aquisição {
   }
   public void SetCliente(Cliente cliente) {
     this.cliente = cliente;
+    this.clienteId=cliente.Id;
   }
   public int GetId() {
     return id;
