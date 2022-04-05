@@ -62,6 +62,38 @@ class NAquisição {
     //Um objeto da classe arquivo recebe um parâmetro de tipo.
    Arquivo<List<Aquisição>> f = new Arquivo<List<Aquisição>>();
     aquisições = f.Abrir("./aquisições.xml");
+    //Atualizar os dados dos clientes e dos produtos. 
+    //Atualizar dados dos clientes:
+    AtualizarCliente();
+    AtualizarProduto();
+  }
+  private void AtualizarCliente(){
+    //Percorrer a lista de aquisições
+    //É necessário procurar o cliente pelo id.
+    foreach(Aquisição a in aquisições){
+      Cliente c = NCliente.Singleton.Listar(a.ClienteId);
+      //Se o cliente informado for recuperado, chama o método de acesso, passando o cliente encontrado.
+      if(c!=null){
+        a.SetCliente(c);
+      }
+    }
+    //Isso é o suficiente para recuperar os dados do cliente a partir do id.
+    
+  }
+ public void AtualizarProduto(){
+    //Percorrer as aquisições.
+    //Para cada aquisição, percorre os itens de aquisição.
+    foreach(Aquisição a in aquisições){
+      //Para cada item da venda, tem que recuperar o produto.
+      foreach(AquisiçãoItem vi in a.ItemListar()){
+        Produto p = NProduto.Singleton.Listar(vi.ProdutoId);
+        //Se o produto for encontrado, o item de venda vai receber esse produto.
+        if(p!=null){
+          vi.SetProduto(p);
+        }
+      }
+    }
+    
   }
 
   public void Salvar() {
