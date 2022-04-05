@@ -120,6 +120,7 @@ class MainClass {
              case 8: ProdutoExcluir(); break;
              case 9: ClienteInserir(); break;
              case 10: ClienteListar(); break;
+             case 11: AquisiçãoListar(); break;
              
      }
      }
@@ -254,6 +255,7 @@ public static int MenuVendedor() {
      Console.WriteLine("8- Produto excluir");
      Console.WriteLine("9- Adicionar uma nova pessoa á lista de clientes.");
      Console.WriteLine("10- Ver lista de  clientes");
+     Console.WriteLine("11- Ver compras registradas pelos clientes");
 
      Console.WriteLine("0 - Voltar para  o menu principal");
      Console.Write("Informe uma opção: ");
@@ -540,7 +542,24 @@ public static void ClienteCarrinhoAdquirir() {
     if (clienteAquisição != null)
       naquisição.ItemExcluir(clienteAquisição);
   }
+  public static void AquisiçãoListar() {
+     Console.WriteLine("----- Lista de Aquisições -----");
+    // Listar as vendas cadastradas
+    List<Aquisição> vs = naquisição.Listar();
+    if (vs.Count == 0) {
+      Console.WriteLine("Nenhuma venda foi cadastrada");
+      return;
+    }
+    foreach(Aquisição a in vs) {
+      Console.WriteLine(a);
+      foreach (AquisiçãoItem item in naquisição.ItemListar(a))
+        Console.WriteLine("  " + item);
+    }    
+    Console.WriteLine();
+  }
+
 }
+
 
 
 //Terminei o último vídeo em 13:29.
