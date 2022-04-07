@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Text;
 using System.IO;
+using System.Linq;
 
 
 
@@ -20,15 +21,51 @@ class NCategoria {
 
 
   public Categoria[] Listar() {
-    Categoria[] c = new Categoria[nc];
-    Array.Copy(categorias, c, nc);
-    return c;
+   // Categoria[] c = new Categoria[nc];
+   // Array.Copy(categorias, c, nc);
+    //Orderby ordena em crescente ou decrescente
+    //Esse método terá uma função que indique qual é o atributo ou propriedade utilizado para fazer essa ordenação.
+  //  c.OrderBy(obj => obj.GetDescrição());
+    //return c;
+    //O Linq tem um método que permite a recuperação de parte dos elementos de uma recuperação, o método Take.
+    //O take precisa recuperar de "nc", que representa o contador da quantidade de elementos que temos na coleção de categorias.
+    //É necessário usar um OrderBy junto com um ToArray para ordenar no formato de vetor.
+    //Com apenas essa instrução é possível substituir as outras operações
+    return 
+    categorias.Take(nc).OrderBy(obj => obj.GetDescrição()).ToArray();
+    
+    
+    
+
   }
 
-  public Categoria Listar(int id) {
-    for (int i = 0; i < nc; i++)
-      if (categorias[i].GetId() == id) return categorias[i];
-    return null;  
+ public Categoria Listar(int id) {
+   //RECUPERAÇÃO DO ID PERCORRENDO A CATEGORIA
+  //  for (int i = 0; i < nc; i++)
+      //if (categorias[i].GetId() == id) return categorias[i];
+    //return null;  
+
+   //RECUPERAÇÃO DO ID UTILIZANDO WHERE
+
+
+   
+   
+    //Sempre que estivermos percorrendo alguma coleção, possivelmente conseguimos resolver utilizando alguma instrução do Linq.
+    //O método where filtra elementos de uma coleção.
+    //É necessário passar uma função que verifique se o objeto que está sendo passado para o método where (No caso uma categoria) tem o id que está sendo procurado.
+    //Isso vai retornar uma coleção de objetos da classe categoria que tenham esse ID. No caso do ID só pode ter 1 ou nenhum elemento.
+  //  var r = categorias.Where(obj => obj.GetId() == id);
+   // if(r.Count() == 0){
+     // return null;
+   // }
+    //O método first retorna um primeiro elemento de uma coleção;
+ //   return r.First();
+
+   //RECUPERAÇÃO DO ID UTILIZANDO FirstOrDefault
+   
+   //Uma maneira mais simples ainda é o usando o método FirstOrDefault
+   return categorias.FirstOrDefault(obj => obj.GetId() == id);
+    
   }
 
   public void Inserir(Categoria c) {
@@ -86,6 +123,5 @@ class NCategoria {
   }
 
   
- 
 
 }
