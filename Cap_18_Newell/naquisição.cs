@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 class NAquisição {
  //Construtor Singleton.
@@ -18,10 +19,14 @@ class NAquisição {
 
   public List<Aquisição> Listar(Cliente c) {
     // Retorna uma lista com as potenciais aquisições cadastradas do cliente c
-    List<Aquisição> vs = new List<Aquisição>();
-    foreach(Aquisição a in aquisições)
-      if (a.GetCliente() == c) vs.Add(a);
-    return vs;
+    //List<Aquisição> vs = new List<Aquisição>();
+    //foreach(Aquisição a in aquisições)
+   //   if (a.GetCliente() == c) vs.Add(a);
+ //   return vs;
+    //ENCONTRANDO AS VENDAS DE UM DETERMINADO CLIENTE UTILIZANDO WHERE
+    //O filtro do where vai ser utilizado junto com o método Tolist, para não mexer no cabeçalho do método e converter a coleção em uma lista.
+    return aquisições.Where(a => a.GetCliente() == c).ToList();
+    
   }
 
   public Aquisição ListarCarrinho(Cliente c) {
@@ -34,10 +39,14 @@ class NAquisição {
   public void Inserir(Aquisição a, bool carrinho) {
     // Gera o código id das Aquisições
     int max = 0;
-    foreach (Aquisição obj in aquisições)
-      if (obj.GetId() > max) max = obj.GetId();
+//    foreach (Aquisição obj in aquisições)
+  //    if (obj.GetId() > max) max = obj.GetId();
     a.SetId(max + 1);
     // Inserir a nova na lista de potenciais aquisições
+    
+    //Recuperando o valor máximo da coleção
+    //Em max, devemos passar como parâmetro a função que informa a propriedade ou o atributo utilizado para fazer a captura do valor máximo. 
+    max=aquisições.Max(obj => obj.GetId());
     aquisições.Add(a);
     // Define o atributo carrinho
     a.SetCarrinho(carrinho);

@@ -561,4 +561,6 @@ public static void ClienteCarrinhoAdquirir() {
 }
 
 
+//Parei o vídeo de Linq em 15:00
+
 
