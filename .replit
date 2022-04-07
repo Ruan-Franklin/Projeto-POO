@@ -1,2 +1,2 @@
-language = "csharp"
-run = "mcs -out:main.exe 'Cap_17_Eich/Main.cs' 'Cap_17_Eich/categoria.cs' 'Cap_17_Eich/produto.cs'  'Cap_17_Eich/ncategoria.cs' 'Cap_17_Eich/nproduto.cs' 'Cap_17_Eich/nsocio.cs' 'Cap_17_Eich/socio.cs' 'Cap_17_Eich/cliente.cs' 'Cap_17_Eich/ncliente.cs' 'Cap_17_Eich/aquisição.cs' 'Cap_17_Eich/aquisiçãoitem.cs' 'Cap_17_Eich/naquisição.cs' 'Cap_17_Eich/arquivo.cs'; mono main.exe"
+ language = "csharp"
+run = "mcs -out:main.exe 'Cap_18_Newell/Main.cs' 'Cap_18_Newell/categoria.cs' 'Cap_18_Newell/produto.cs'  'Cap_18_Newell/ncategoria.cs' 'Cap_18_Newell/nproduto.cs' 'Cap_18_Newell/nsocio.cs' 'Cap_18_Newell/socio.cs' 'Cap_18_Newell/cliente.cs' 'Cap_18_Newell/ncliente.cs' 'Cap_18_Newell/aquisição.cs' 'Cap_18_Newell/aquisiçãoitem.cs' 'Cap_18_Newell/naquisição.cs' 'Cap_18_Newell/arquivo.cs'; mono main.exe"
