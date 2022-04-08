@@ -557,6 +557,26 @@ public static void ClienteCarrinhoAdquirir() {
         Console.WriteLine("  " + item);
     }    
     Console.WriteLine();
+
+    //Totalização por mês *********************
+    //Objetivo: gerar uma nova coleção de dados, pegando informaões da data e dos itens que foram comprados pelos clientes.
+    //Tipos anônimos serão utilizados
+    //No select, passa um objeto aquisição com um novo objeto com as seguintes informações: 
+    var r1=vs.Select(a => new{MesAno = a.Data.Month + "/" + a.Data.Year, Total  = "R$ " + a.Itens.Sum(vi => vi.Quantidade * vi.Preço )});
+    foreach(var item in r1){
+      Console.WriteLine(item);
+      Console.WriteLine();
+    }
+
+    //A função groupBy do Linq gera uma outra coleção, mas dessa vez será utilizada para agrupamento
+    //É necessário informar quem é que vai utilizar para fazer o agrupamento.
+ //  var r2 = r1.GroupBy(item => item.MesAno,
+   //   (key, itens) => new {
+     //   MesAno = key,
+       // Total = itens.Sum(item => item.Total) });
+
+//    foreach(var item in r2) Console.WriteLine(item);
+  //  Console.WriteLine();
   }
 
 }
